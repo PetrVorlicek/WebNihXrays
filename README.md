@@ -10,6 +10,8 @@ https://drive.google.com/file/d/1ZiJascebpRnZqdgfwbXaRQp71wc_gAui/view?usp=share
 Stažený soubor vložte do:
 /WebNihXrays/example_model/variables/
 
+Verze pythonu:
+Python3.8
 
 Tvůrce:
 PV
