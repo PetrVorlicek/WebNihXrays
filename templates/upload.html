@@ -9,19 +9,38 @@
         <br>
         <button class="btn btn-dark my-4" type="submit">Nahrát</button>
     </form>
-    <div class="row">
-        {% if class0 %}
-          {%if file_url %} 
+    <div>
+        {% if file_url %}
+           
           <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
             <img src="{{ file_url }}" class="img-fluid">
             <br>
           </div>
-          {% endif %}
-        
-        <p>Klasifikace:</p>
-        <p>{{class0}} {{class1}}</p>
+        {% endif %}
+        {% if classification.0 %}
+        <table>
+          <caption>Klasifikace</caption>
+          <thead>
+            <tr>
+              <th>Bez abnormality</th>
+              <th>S abnormalitou</th>
+              <th>Výsledek</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{classification.0}}</td>
+              <td>{{classification.1}}</td>
+              {% if classification.0 > classification.1 %}
+              <td>Bez abnormality</td>
+              {% else %}
+              <td>S abnormalitou</td>
+              {% endif %}
+            </tr>
+          </tbody>
+        </table>
         {% else %}
-        <p>Tento obrázek nelze klasifikovat!</p>
+        <p>Žádný obrázek ke klasifikaci!</p>
         {% endif %}
       </div>
 

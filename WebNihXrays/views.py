@@ -1,24 +1,25 @@
 from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
 
-#import AI model
+#Import AI model - urls.py are run on server startup
 from . import aiModel
 
 def upload(request):
     
     if request.method == 'POST' and request.FILES['upload']:
         upload = request.FILES['upload']
+        
+        #Save image to show it later
         fs = FileSystemStorage()
-        print(upload.name)
         file = fs.save(upload.name, upload)
-        print(file)
         file_url = fs.url(file)
         
-        img_arr = aiModel.img_to_arr(upload.name)
+        img_arr = aiModel.file_to_arr(upload)
+        #There is one prediction in array
         classification = aiModel.model.predict([img_arr])[0]
         
         return render(request, 'upload.html', {'file_url': file_url, 
-        'class0': classification[0], 'class1': classification[1]})
+        'classification': classification})
         
     return render(request, 'upload.html')
 
