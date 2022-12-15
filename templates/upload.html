@@ -11,6 +11,11 @@
     </form>
     <br>
     <div>
+        {% if exception %}
+        <div class="alert alert-danger" role="alert">
+          {{exception}}
+        </div>
+        {% endif %}
         {% if file_url %}
            
           <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
@@ -33,9 +38,9 @@
               <td>{{classification.0}}</td>
               <td>{{classification.1}}</td>
               {% if classification.0 > classification.1 %}
-              <td>Bez abnormality</td>
+              <td>Bez nálezu</td>
               {% else %}
-              <td>S abnormalitou</td>
+              <td>S nálezem</td>
               {% endif %}
             </tr>
           </tbody>

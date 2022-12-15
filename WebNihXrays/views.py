@@ -6,9 +6,16 @@ from . import aiModel
 
 def upload(request):
     
-    if request.method == 'POST' and request.FILES['upload']:
-        upload = request.FILES['upload']
+    if request.method == 'POST':
+        #Print warning when user POSTs without file upload
+        try:
+            upload = request.FILES['upload']
+        except:
+            exception = "No upload file!"
+            print(exception)
+            return render(request, 'upload.html', {'exception': exception})
         
+
         #Save image to show it later
         fs = FileSystemStorage()
         file = fs.save(upload.name, upload)

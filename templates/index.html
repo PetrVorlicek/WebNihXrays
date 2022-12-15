@@ -3,7 +3,15 @@
 {% block body_block %}
 
 <div>
-    Úvodní stránka
+    <h2>O tvorbě modelu</h2>
+    <p>Model byl vytvořen z <a href="https://www.kaggle.com/datasets/nih-chest-xrays/data">NIH Chest X-rays datasetu</a>,
+    konkrétně pomocí "all_findings_expert_labels_test_labels.csv" z doplněných přesnějších
+    značek. Vybrané obrázky byly zmenšeny na velikost 300x300 a převedeny do jednorozměrného pole. 
+    Samotný model byl vytvořen <a href="https://developers.google.com/codelabs/tensorflow-2-computervision#2">dle návodu =)</a>. 
+    Model hodnotí pouze 2 třídy - bez nálezu a s nálezem.</p>
+    <h2>Webové rozhraní</h2>
+    <p>Pro interakci se zmíněným modelem bylo vytvořeno toto rozhraní v Django.
+    </p>
 </div>
 
 {% endblock %}
