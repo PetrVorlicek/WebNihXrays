@@ -5,10 +5,11 @@
 <div>
     <form method = "post" enctype="multipart/form-data">
         {% csrf_token %}
+
         <input type="file" name="upload" accept="image/*">
-        <br>
-        <button class="btn btn-dark my-4" type="submit">Nahrát</button>
+        <button class="btn btn-outline-secondary" type="submit">Nahrát</button>
     </form>
+    <br>
     <div>
         {% if file_url %}
            
@@ -18,8 +19,8 @@
           </div>
         {% endif %}
         {% if classification.0 %}
-        <table>
-          <caption>Klasifikace</caption>
+        <h2>Klasifikace</h2>
+        <table class="table">
           <thead>
             <tr>
               <th>Bez abnormality</th>
